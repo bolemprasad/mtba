@@ -17,3 +17,8 @@ env/
 
 # Environment variable files (if any)
 .env
+
+
+.env
+venv/
+__pycache__/
