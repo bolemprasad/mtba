@@ -1,0 +1,67 @@
+<!-- templates/book.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Movie</title>
+    <style>
+        body {
+            background-color: #fffdd0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .booking-box {
+            background: white;
+            padding: 30px;
+            margin: 80px auto;
+            width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 12px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+<div class="booking-box">
+    <h2>Book: {{ movie.title }}</h2>
+    <form method="POST">
+        <label for="show_id">Select Show Time:</label>
+        <select name="show_id" required>
+            {% for show in showtimes %}
+                <option value="{{ show.id }}">
+                    {{ show.theater.name }} ({{ show.theater.location }}) @ {{ show.show_time }} — ₹{{ show.price }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <label for="seats">Number of Seats:</label>
+        <input type="number" name="seats" min="1" max="10" required>
+
+        <button type="submit">Confirm Booking</button>
+    </form>
+</div>
+</body>
+</html>

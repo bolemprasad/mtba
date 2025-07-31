@@ -1,0 +1,43 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #283c86, #45a247);
+            font-family: 'Segoe UI', sans-serif;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ffe066;
+        }
+
+        a {
+            margin-top: 20px;
+            color: #ffe066;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ username }}! You are logged in.</h1>
+    <a href="{{ url_for('movie_list') }}">🎬 View Movies</a><br>
+    <a href="{{ url_for('logout') }}">🚪 Logout</a>
+</body>
+</html>
