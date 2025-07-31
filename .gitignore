@@ -22,3 +22,32 @@ env/
 .env
 venv/
 __pycache__/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+
+# Environment variables
+.env
+
+# SQLite database (optional)
+*.db
+
+# VS Code settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# Logs
+*.log
+
+# Python build
+build/
+dist/
+*.egg-info/
