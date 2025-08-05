@@ -64,13 +64,13 @@ def movie_list():
     if 'user' not in session:
         return redirect(url_for('routes.login'))
 
-    lang = request.args.get("lang", "")
-    query = request.args.get("query", "")
-    category = request.args.get("category", "now_playing")
+    selected_language = request.args.get('lang')
+    if selected_language:
+        movies = Movie.query.filter_by(language=selected_language).all()
+    else:
+        movies = Movie.query.all()
 
-    movies = fetch_movies_by_language(lang=lang, query=query, category=category)
-
-    return render_template("movies.html", movies=movies, selected_lang=lang, search_query=query, selected_category=category)
+    return render_template('movies.html', movies=movies, selected_language=selected_language)
 
 @routes.route('/book/<int:movie_id>', methods=['GET', 'POST'])
 def book_movie(movie_id):
